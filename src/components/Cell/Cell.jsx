@@ -1,12 +1,16 @@
 import React from 'react'
 import './Cell.css'
+import { useDispatch } from 'react-redux'
+import { click } from 'modules/game'
 
 
-export const Cell = (({ state }) => {
+export const Cell = (() => {
 
-    const className = `${state}-cell cell`
-
+    const dispatch = useDispatch()
+    const onClick = () => {
+        dispatch(click())
+    }
     return (
-        <div className='non-activ-cell'></div>
+        <div className='cell' onClick={onClick}></div>
     )
 })

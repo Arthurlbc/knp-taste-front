@@ -2,7 +2,12 @@
 const KILL = 'game::KILL'
 const LIVE = 'game::LIVE'
 const START = 'game::START'
+const CLICK = 'game::click'
 
+
+export const click = (state, action) => ({
+    type: CLICK,
+})
 
 export const start = (height, width) => dispatch => {
 
@@ -28,11 +33,16 @@ export function reducer(state = INITIAL_STATE, action) {
     switch (type) {
         case 'game::KILL':
             return {
-                state: { className: 'non-activ' }
+                alive: false
             }
         case 'game::LIVE':
             return {
-                state: { className: 'activ' }
+                alive: true
+            }
+        case 'game::CLICK':
+            console.log('click')
+            return {
+                ...state = false ?? true
             }
         default:
             return state
@@ -41,5 +51,5 @@ export function reducer(state = INITIAL_STATE, action) {
 }
 
 const INITIAL_STATE = {
-    grid: [[]]
+    alive: false
 }
