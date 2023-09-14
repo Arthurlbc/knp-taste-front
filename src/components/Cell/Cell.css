@@ -1,0 +1,12 @@
+.activ-cell{
+    background-color: red;
+}
+.non-activ-cell{
+    background-color: black;
+}
+
+.cell{
+    height: 10px;
+    border: 5px solid black;
+    width: 20px;
+}
