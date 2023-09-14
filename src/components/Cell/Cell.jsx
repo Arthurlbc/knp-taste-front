@@ -1,16 +1,26 @@
 import React from 'react'
 import './Cell.css'
-import { useDispatch } from 'react-redux'
-import { click } from 'modules/game'
+import styled from 'styled-components'
 
 
-export const Cell = (() => {
+export const Cell = ((props) => {
+    const { x, y, alive } = props
 
-    const dispatch = useDispatch()
-    const onClick = () => {
-        dispatch(click())
-    }
+    // TODO use styled lib
+    // const div = styled.div`
+    // width: 5em;
+    // height: 5em;
+    // border: 1px solid black;
+    // box-sizing: border-box;
+    // {$alive ? { backgroundColor: 'black' } : { backgroundColor: 'white' }}
+    // backgroundColor: ${alive? "white" : "black  "};`
+    
+
     return (
-        <div className='cell' onClick={onClick}></div>
+        <div
+            className='cell'
+            style={alive ? { backgroundColor: 'black' } : { backgroundColor: 'white' }}  >
+            {x}- {y}
+        </div>
     )
 })

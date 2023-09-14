@@ -1,6 +1,5 @@
 .grid {
+  width: 25em;
     display: grid;
-    grid-template-columns: repeat(var(--cols), var(--tile-size));
-    grid-gap: 0;
-    align-self: flex-start;
+    grid-template-columns: repeat(5, 1fr);
   }

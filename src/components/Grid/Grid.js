@@ -1,27 +1,26 @@
 import React from "react";
 import { Cell } from "components/Cell";
 import './Grid.css'
-import { Provider } from "react-redux";
-import configureStore from "configureStore";
+import { useSelector } from "react-redux";
 
 
-const Grid = (props) => {
+const Grid = () => {
+
+  const grid = useSelector(state => state.game.grid)
+  console.log(grid)
+
 
   return (
-    <Provider store={configureStore()}>
-      <div className='grid'>
-        {(() => {
-          const grid = [];
-          for (let row = 0; row < 50; row++) {
-            grid.push([])
-            for (let col = 0; col < 50; col++) {
-              grid[row].push(<Cell />)
-            }
-          }
-          return grid;
-        })()}
-      </div>
-    </Provider>
+    <div className='grid'>
+      {grid.map((line, indexLine) => {
+        return line.map((alive, indexCell) => {
+          return <Cell
+            alive={alive}
+            x={indexCell}
+            y={indexLine}/>
+        })
+      })}
+    </div>
   )
 }
 export default Grid

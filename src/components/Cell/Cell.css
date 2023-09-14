@@ -1,7 +1,6 @@
 .cell{
-    width: 1em;
-    height: 1em;
-    margin: auto;
+    width: 5em;
+    height: 5em;
     border: 1px solid black;
     box-sizing: border-box;
 }
