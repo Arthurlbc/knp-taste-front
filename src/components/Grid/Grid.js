@@ -1,7 +1,7 @@
 import React from "react";
 import { Cell } from "components/Cell";
-import './Grid.css'
 import { useSelector } from "react-redux";
+import styled from "styled-components";
 
 
 const Grid = () => {
@@ -10,17 +10,23 @@ const Grid = () => {
   console.log(grid)
 
 
+  const Div = styled.div`
+  width: 25em;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  `
+
   return (
-    <div className='grid'>
+    <Div>
       {grid.map((line, indexLine) => {
         return line.map((alive, indexCell) => {
           return <Cell
             alive={alive}
             x={indexCell}
-            y={indexLine}/>
+            y={indexLine} />
         })
       })}
-    </div>
+    </Div>
   )
 }
 export default Grid
