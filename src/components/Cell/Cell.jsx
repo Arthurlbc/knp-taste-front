@@ -3,17 +3,16 @@ import styled from 'styled-components'
 
 
 export const Cell = ((props) => {
-    const { x, y, alive } = props
+    const { x, y, alive, onClick } = props
 
-    // TODO use styled lib
     const Div = styled.div`
     width: 5em;
     height: 5em;
     border: 1px solid black;
     box-sizing: border-box;
-    ${alive} ? { backgroundColor: 'black' }; : backgroundColor: 'white';
+    background-color: ${(alive ? 'grey' : 'white')};
     `
 
-    return <Div>{x}- {y}</Div>
+    return <Div onClick={onClick}>{x}- {y}</Div>
 
 })
